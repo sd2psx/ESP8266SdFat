@@ -28,6 +28,11 @@
  */
 #ifndef SdSpiLibDriver_h
 #define SdSpiLibDriver_h
+
+
+namespace sdfat {
+
+
 //------------------------------------------------------------------------------
 inline void SdSpiArduinoDriver::activate() {
   m_spi->beginTransaction(m_spiSettings);
@@ -70,4 +75,9 @@ inline void SdSpiArduinoDriver::send(const uint8_t* buf, size_t count) {
     m_spi->transfer(buf[i]);
   }
 }
+
+
+}; // namespace sdfat
+
+
 #endif  // SdSpiLibDriver_h

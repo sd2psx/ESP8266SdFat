@@ -13,6 +13,9 @@
 #include "SdFat.h"
 #include "sdios.h"
 
+using namespace sdfat;
+
+
 /*
   Set DISABLE_CS_PIN to disable a second SPI device.
   For example, with the Ethernet shield, set DISABLE_CS_PIN

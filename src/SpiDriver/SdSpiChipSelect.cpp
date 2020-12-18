@@ -23,6 +23,11 @@
  * DEALINGS IN THE SOFTWARE.
  */
 #include "SdSpiDriver.h"
+
+
+namespace sdfat {
+
+
 #if ENABLE_ARDUINO_FEATURES
 #if SD_CHIP_SELECT_MODE == 0
 //------------------------------------------------------------------------------
@@ -46,3 +51,6 @@ void sdCsWrite(SdCsPin_t pin, bool level) {
 }
 #endif  // SD_CHIP_SELECT_MODE == 0
 #endif  // ENABLE_ARDUINO_FEATURES
+
+
+}; // namespace sdfat

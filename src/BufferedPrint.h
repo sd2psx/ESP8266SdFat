@@ -29,6 +29,11 @@
  * \brief Fast buffered print.
  */
 #include "common/FmtNumber.h"
+
+
+namespace sdfat {
+
+
 /**
  * \class BufferedPrint
  * \brief Fast buffered print template.
@@ -266,4 +271,9 @@ class BufferedPrint {
   // Insure room for double.
   uint8_t m_buf[BUF_DIM < 24 ? 24 : BUF_DIM];  // NOLINT
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // BufferedPrint_h

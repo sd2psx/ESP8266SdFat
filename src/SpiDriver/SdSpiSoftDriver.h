@@ -29,6 +29,11 @@
 #ifndef SdSpiSoftDriver_h
 #define SdSpiSoftDriver_h
 #include "../DigitalIO/SoftSPI.h"
+
+
+namespace sdfat {
+
+
 /**
  * \class SdSpiSoftDriver
  * \brief Base class for external soft SPI.
@@ -116,4 +121,9 @@ class SoftSpiDriver : public SdSpiSoftDriver {
 
 /** Typedef for use of SdSoftSpiDriver */
 typedef SdSpiSoftDriver SdSpiDriver;
+
+
+}; // namespace sdfat
+
+
 #endif  // SdSpiSoftDriver_h

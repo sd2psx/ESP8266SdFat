@@ -27,6 +27,11 @@
 #include "../common/FsStructs.h"
 #include "FatFile.h"
 #include "FatVolume.h"
+
+
+namespace sdfat {
+
+
 //------------------------------------------------------------------------------
 bool FatFile::getSFN(char* name) {
   uint8_t j = 0;
@@ -304,3 +309,6 @@ bool FatFile::remove() {
   return false;
 }
 #endif  // !USE_LONG_FILE_NAMES
+
+
+}; // namespace sdfat

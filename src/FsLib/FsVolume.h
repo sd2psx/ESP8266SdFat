@@ -32,6 +32,10 @@
 #include "../FatLib/FatLib.h"
 #include "../ExFatLib/ExFatLib.h"
 
+
+namespace sdfat {
+
+
 class FsFile;
 /**
  * \class FsVolume
@@ -371,4 +375,9 @@ class FsVolume {
   ExFatVolume* m_xVol;
   BlockDevice* m_blockDev;
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // FsVolume_h

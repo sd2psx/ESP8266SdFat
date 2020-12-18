@@ -2,6 +2,9 @@
 // Set the callback with this statement.
 // FsDateTime::setCallback(dateTime);
 #include "SdFat.h"
+
+using namespace sdfat;
+
 // https://github.com/adafruit/RTClib
 #include "RTClib.h"
 // Set RTC_TYPE for file timestamps.

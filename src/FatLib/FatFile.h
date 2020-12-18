@@ -37,7 +37,17 @@
 #include "../common/FsDateTime.h"
 #include "../common/FsStructs.h"
 #include "FatPartition.h"
+
+
+namespace sdfat {
+
+
 class FatVolume;
+
+
+}; // namespace sdfat
+
+
 //------------------------------------------------------------------------------
 // Stuff to store strings in AVR flash.
 #ifdef __AVR__
@@ -60,6 +70,11 @@ class FatVolume;
 #define PROGMEM
 #endif  // PROGMEM
 #endif  // __AVR__
+
+
+namespace sdfat {
+
+
 //------------------------------------------------------------------------------
 /**
  * \struct FatPos_t
@@ -1021,7 +1036,16 @@ class FatFile {
   uint32_t   m_firstCluster;     // first cluster of file
 };
 
+
+}; // namespace sdfat
+
+
 #include "../common/ArduinoFiles.h"
+
+
+namespace sdfat {
+
+
 /**
  * \class File32
  * \brief FAT16/FAT32 file with Arduino Stream.
@@ -1039,4 +1063,9 @@ class File32 : public StreamFile<FatFile, uint32_t> {
     return tmpFile;
   }
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // FatFile_h

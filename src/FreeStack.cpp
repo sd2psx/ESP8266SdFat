@@ -24,6 +24,11 @@
  */
 #define FREE_STACK_CPP
 #include "FreeStack.h"
+
+
+namespace sdfat {
+
+
 #if defined(HAS_UNUSED_STACK) && HAS_UNUSED_STACK
 //------------------------------------------------------------------------------
 inline char* stackBegin() {
@@ -78,3 +83,6 @@ int UnusedStack() {
   return n;
 }
 #endif  // defined(HAS_UNUSED_STACK) && HAS_UNUSED_STACK
+
+
+}; // namepace sdfat

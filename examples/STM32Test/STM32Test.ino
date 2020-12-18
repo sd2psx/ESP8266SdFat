@@ -6,6 +6,9 @@
 #include "SdFat.h"
 #include "FreeStack.h"
 
+using namespace sdfat;
+
+
 // Chip select PA4, shared SPI, 18 MHz, port 1.
 #define SD1_CONFIG SdSpiConfig(PA4, SHARED_SPI, SD_SCK_MHZ(18), &SPI)
 SdFs sd1;

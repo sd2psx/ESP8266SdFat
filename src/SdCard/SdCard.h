@@ -26,6 +26,11 @@
 #define SdCard_h
 #include "SdioCard.h"
 #include "SdSpiCard.h"
+
+
+namespace sdfat {
+
+
 #if HAS_SDIO_CLASS
 typedef SdCardInterface SdCard;
 #else  // HAS_SDIO_CLASS
@@ -79,4 +84,9 @@ class SdCardFactory {
 #endif  // HAS_SDIO_CLASS
   SdSpiCard m_spiCard;
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // SdCard_h

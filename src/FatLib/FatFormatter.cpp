@@ -23,6 +23,11 @@
  * DEALINGS IN THE SOFTWARE.
  */
 #include "FatFormatter.h"
+
+
+namespace sdfat {
+
+
 // Set nonzero to use calculated CHS in MBR.  Should not be required.
 #define USE_LBA_TO_CHS 0
 
@@ -278,3 +283,6 @@ bool FatFormatter::writeMbr() {
   setLe16(mbr->signature, MBR_SIGNATURE);
   return m_dev->writeSector(0, m_secBuf);
 }
+
+
+}; // namespace sdfat

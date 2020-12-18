@@ -31,6 +31,11 @@
 #include <stdint.h>
 #include <stddef.h>
 #include "../SdFatConfig.h"
+
+
+namespace sdfat {
+
+
 /**
  * \class BlockDeviceInterface
  * \brief BlockDeviceInterface class.
@@ -85,4 +90,9 @@ class BlockDeviceInterface {
   virtual bool writeSectors(uint32_t sector, const uint8_t* src, size_t ns) = 0;
 #endif  // USE_MULTI_SECTOR_IO
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // BlockDeviceInterface_h

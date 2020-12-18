@@ -27,6 +27,11 @@
 #include "ExFatFile.h"
 #include "ExFatVolume.h"
 #include "upcase.h"
+
+
+namespace sdfat {
+
+
 //==============================================================================
 #if READ_ONLY
 bool ExFatFile::mkdir(ExFatFile* parent, const ExChar_t* path, bool pFlag) {
@@ -793,3 +798,6 @@ size_t ExFatFile::write(const void* buf, size_t nbyte) {
   return -1;
 }
 #endif  // READ_ONLY
+
+
+}; // namespace sdfat

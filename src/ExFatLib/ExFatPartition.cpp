@@ -26,6 +26,11 @@
 #include "../common/DebugMacros.h"
 #include "ExFatVolume.h"
 #include "../common/FsStructs.h"
+
+
+namespace sdfat {
+
+
 //------------------------------------------------------------------------------
 uint8_t* FsCache::get(uint32_t sector, uint8_t option) {
   if (!m_blockDev) {
@@ -374,3 +379,6 @@ uint32_t ExFatPartition::rootLength() {
   uint32_t nc = chainSize(m_rootDirectoryCluster);
   return nc << bytesPerClusterShift();
 }
+
+
+}; // namespace sdfat

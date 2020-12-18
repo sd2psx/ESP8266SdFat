@@ -25,6 +25,11 @@
 #define DBG_FILE "ExFatFormatter.cpp"
 #include "../common/DebugMacros.h"
 #include "ExFatFormatter.h"
+
+
+namespace sdfat {
+
+
 //------------------------------------------------------------------------------
 // Formatter assumes 512 byte sectors.
 const uint32_t BOOT_BACKUP_OFFSET = 12;
@@ -360,3 +365,6 @@ bool ExFatFormatter::writeUpcase(uint32_t sector) {
  fail:
   return false;
 }
+
+
+}; // namespace sdfat

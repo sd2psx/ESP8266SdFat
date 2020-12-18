@@ -25,6 +25,11 @@
 #ifndef ArduinoFiles_h
 #define ArduinoFiles_h
 #include "../SdFatConfig.h"
+
+
+namespace sdfat {
+
+
 //------------------------------------------------------------------------------
 /** Arduino SD.h style flag for open for read. */
 #ifndef FILE_READ
@@ -156,4 +161,9 @@ class StreamFile : public stream_t, public BaseFile {
     return BaseFile::write(buffer, size);
   }
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // ArduinoFiles_h

@@ -28,6 +28,10 @@
 #include "CompileDateTime.h"
 #include "SysCall.h"
 
+
+namespace sdfat {
+
+
 /** Backward compatible definition. */
 #define FAT_DATE(y, m, d) FS_DATE(y, m, d)
 
@@ -190,4 +194,9 @@ size_t fsPrintDateTime(print_t* pr, uint32_t dateTime, uint8_t s100, int8_t tz);
 size_t fsPrintTime(print_t* pr, uint16_t time);
 size_t fsPrintTime(print_t* pr, uint16_t time, uint8_t sec100);
 size_t fsPrintTimeZone(print_t* pr, int8_t tz);
+
+
+}; // namespace sdfat
+
+
 #endif  // FsDateTime_h

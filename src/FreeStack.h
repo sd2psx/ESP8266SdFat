@@ -69,9 +69,20 @@ inline int FreeStack() {
 #ifndef FREE_STACK_CPP
 #warning FreeStack is not defined for this system.
 #endif  // FREE_STACK_CPP
+
+
+namespace sdfat {
+
+
+// TODO - Patch in ESP.getfreestack()
 inline int FreeStack() {
   return 0;
 }
+
+
+}; // namespace sdfat
+
+
 #endif  // defined(__AVR__) || defined(DOXYGEN)
 #if defined(HAS_UNUSED_STACK) || defined(DOXYGEN)
 /** Fill stack with 0x55 pattern */
@@ -88,7 +99,17 @@ void FillStack();
 int UnusedStack();
 #else  // HAS_UNUSED_STACK
 #define HAS_UNUSED_STACK 0
+
+
+namespace sdfat {
+
+
 inline void FillStack() {}
 inline int UnusedStack() {return 0;}
+
+
+}; // namespace sdfat
+
+
 #endif  // defined(HAS_UNUSED_STACK)
 #endif  // FreeStack_h

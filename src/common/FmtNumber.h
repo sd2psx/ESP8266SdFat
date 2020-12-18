@@ -27,6 +27,11 @@
 #include <math.h>
 #include <stdint.h>
 #include <stddef.h>
+
+
+namespace sdfat {
+
+
 inline bool isDigit(char c) {
   return '0' <= (c) && (c) <= '9';
 }
@@ -40,4 +45,8 @@ char* fmtDouble(char* str, double d, uint8_t prec, bool altFmt, char expChar);
 char* fmtHex(char* str, uint32_t n);
 char* fmtSigned(char* str, int32_t n, uint8_t base, bool caps);
 char* fmtUnsigned(char* str, uint32_t n, uint8_t base, bool caps);
+
+}; // namespace sdfat
+
+
 #endif  // FmtNumber_h

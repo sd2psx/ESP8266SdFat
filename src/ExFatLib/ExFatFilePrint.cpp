@@ -27,6 +27,11 @@
 #include "ExFatFile.h"
 #include "upcase.h"
 #include "ExFatVolume.h"
+
+
+namespace sdfat {
+
+
 //------------------------------------------------------------------------------
 bool ExFatFile::ls(print_t* pr) {
   ExFatFile file;
@@ -179,3 +184,6 @@ size_t ExFatFile::printName(print_t* pr) {
  fail:
   return 0;
 }
+
+
+}; // namespace sdfat

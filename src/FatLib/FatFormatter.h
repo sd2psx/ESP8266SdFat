@@ -28,6 +28,11 @@
 #include "../common/SysCall.h"
 #include "../common/BlockDevice.h"
 #include "../common/FsStructs.h"
+
+
+namespace sdfat {
+
+
 /**
  * \class FatFormatter
  * \brief Format a FAT volume.
@@ -65,4 +70,9 @@ class FatFormatter {
   uint8_t m_partType;
   uint8_t m_sectorsPerCluster;
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // FatFormatter_h

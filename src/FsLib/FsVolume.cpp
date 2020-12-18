@@ -23,6 +23,11 @@
  * DEALINGS IN THE SOFTWARE.
  */
 #include "FsLib.h"
+
+
+namespace sdfat {
+
+
 FsVolume* FsVolume::m_cwv = nullptr;
 //------------------------------------------------------------------------------
 bool FsVolume::begin(BlockDevice* blockDev) {
@@ -62,3 +67,6 @@ FsFile FsVolume::open(const String &path, oflag_t oflag) {
   return open(path.c_str(), oflag );
 }
 #endif  // ENABLE_ARDUINO_STRING
+
+
+}; // namespace sdfat

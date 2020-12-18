@@ -28,6 +28,11 @@
 
 #if USE_FCNTL_H
 #include <fcntl.h>
+
+
+namespace sdfat {
+
+
 /* values for GNU Arm Embedded Toolchain.
  * O_RDONLY:   0x0
  * O_WRONLY:   0x1
@@ -43,7 +48,17 @@
 /** Use O_NONBLOCK for open at EOF */
 #define O_AT_END O_NONBLOCK  ///< Open at EOF.
 typedef int oflag_t;
+
+
+}; // namespace sdfat
+
+
 #else  // USE_FCNTL_H
+
+
+namespace sdfat {
+
+
 #define O_RDONLY  0X00  ///< Open for reading only.
 #define O_WRONLY  0X01  ///< Open for writing only.
 #define O_RDWR    0X02  ///< Open for reading and writing.
@@ -56,7 +71,16 @@ typedef int oflag_t;
 
 #define O_ACCMODE (O_RDONLY|O_WRONLY|O_RDWR)  ///< Mask for access mode.
 typedef uint8_t oflag_t;
+
+
+}; // namespace sdfat
+
+
 #endif  // USE_FCNTL_H
+
+
+namespace sdfat {
+
 
 #define O_READ    O_RDONLY
 #define O_WRITE   O_WRONLY
@@ -83,4 +107,9 @@ const uint8_t T_ACCESS = 1;
 const uint8_t T_CREATE = 2;
 /** Set the file's write date and time */
 const uint8_t T_WRITE = 4;
+
+
+}; // namespace sdfat
+
+
 #endif  // FsApiConstants_h

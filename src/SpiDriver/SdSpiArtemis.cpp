@@ -23,6 +23,11 @@
  * DEALINGS IN THE SOFTWARE.
  */
 #include "SdSpiDriver.h"
+
+
+namespace sdfat {
+
+
 #if defined(SD_USE_CUSTOM_SPI) && defined(ARDUINO_ARCH_APOLLO3)
 //------------------------------------------------------------------------------
 void SdSpiArduinoDriver::activate() {
@@ -72,3 +77,6 @@ void SdSpiArduinoDriver::send(const uint8_t* buf, size_t count) {
   m_spi->transfer(reinterpret_cast<void *>(myArray), count);
 }
 #endif  // defined(SD_USE_CUSTOM_SPI) && defined(ARDUINO_ARCH_APOLLO3)
+
+
+}; // namespace sdfat

@@ -28,6 +28,11 @@
  */
 #ifndef SdSpiBaseClass_h
 #define SdSpiBaseClass_h
+
+
+namespace sdfat {
+
+
 /**
  * \class SdSpiBaseClass
  * \brief Base class for external SPI drivers
@@ -73,4 +78,9 @@ class SdSpiBaseClass {
    */
   virtual void setSckSpeed(uint32_t maxSck) {(void)maxSck;}
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // SdSpiBaseClass_h

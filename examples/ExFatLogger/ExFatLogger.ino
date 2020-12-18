@@ -9,6 +9,9 @@
 #include "SdFat.h"
 #include "FreeStack.h"
 #include "ExFatLogger.h"
+
+using namespace sdfat;
+
 //------------------------------------------------------------------------------
 // This example was designed for exFAT but will support FAT16/FAT32.
 // Note: Uno will not support SD_FAT_TYPE = 3.

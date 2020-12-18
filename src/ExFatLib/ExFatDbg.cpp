@@ -26,6 +26,11 @@
 #include "upcase.h"
 #include "ExFatFile.h"
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
+
+
+namespace sdfat {
+
+
 //------------------------------------------------------------------------------
 static void printHex(print_t* pr, uint8_t h);
 static void printHex(print_t* pr, uint16_t val);
@@ -598,4 +603,9 @@ bool ExFatPartition::printVolInfo(print_t* pr) {
   printExFatBoot(pr, reinterpret_cast<pbs_t*>(cache));
   return true;
 }
+
+
+}; // namespace sdfat
+
+
 #endif  // DOXYGEN_SHOULD_SKIP_THIS

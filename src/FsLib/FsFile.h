@@ -31,6 +31,11 @@
 #include "FsNew.h"
 #include "FatLib/FatLib.h"
 #include "ExFatLib/ExFatLib.h"
+
+
+namespace sdfat {
+
+
 /**
  * \class FsBaseFile
  * \brief FsBaseFile class.
@@ -757,4 +762,9 @@ class FsFile : public StreamFile<FsBaseFile, uint64_t> {
     return tmpFile;
   }
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // FsFile_h

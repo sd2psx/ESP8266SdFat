@@ -26,6 +26,11 @@
 #include "SdioTeensy.h"
 #include "SdCardInfo.h"
 #include "SdioCard.h"
+
+
+namespace sdfat {
+
+
 //==============================================================================
 // limit of K66 due to errata KINETIS_K_0N65N.
 const uint32_t MAX_SDHC_COUNT = 0XFFFF;
@@ -995,4 +1000,9 @@ bool SdioCard::writeStart(uint32_t sector) {
 bool SdioCard::writeStop() {
   return transferStop();
 }
+
+
+}; // namespace sdfat
+
+
 #endif  // defined(__MK64FX512__)  defined(__MK66FX1M0__) defined(__IMXRT1062__)

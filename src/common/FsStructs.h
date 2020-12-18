@@ -25,6 +25,11 @@
 #ifndef FsStructs_h
 #define FsStructs_h
 #include <stdint.h>
+
+
+namespace sdfat {
+
+
 //-----------------------------------------------------------------------------
 void lbaToMbrChs(uint8_t* chs, uint32_t capacityMB, uint32_t lba);
 //-----------------------------------------------------------------------------
@@ -381,4 +386,9 @@ typedef struct {
   uint8_t  mustBeZero;
   uint8_t  unicode[30];
 } DirName_t;
+
+
+}; // namespace sdfat
+
+
 #endif  // FsStructs_h

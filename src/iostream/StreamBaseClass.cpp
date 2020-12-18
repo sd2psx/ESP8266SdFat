@@ -23,6 +23,11 @@
  * DEALINGS IN THE SOFTWARE.
  */
 #include "fstream.h"
+
+
+namespace sdfat {
+
+
 //------------------------------------------------------------------------------
 int16_t StreamBaseClass::getch() {
   uint8_t c;
@@ -158,3 +163,6 @@ int StreamBaseClass::write(const void* buf, size_t n) {
 void StreamBaseClass::write(char c) {
   StreamBaseFile::write(&c, 1);
 }
+
+
+}; // namespace sdfat

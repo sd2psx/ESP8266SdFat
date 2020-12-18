@@ -29,6 +29,11 @@
 #ifndef MinimumSerial_h
 #define MinimumSerial_h
 #include "common/SysCall.h"
+
+
+namespace sdfat {
+
+
 //==============================================================================
 /**
  * \class MinimumSerial
@@ -64,4 +69,9 @@ class MinimumSerial : public print_t {
   size_t write(uint8_t b);
   using print_t::write;
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // MinimumSerial_h

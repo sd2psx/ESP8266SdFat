@@ -30,6 +30,11 @@
  */
 #include "SdFatConfig.h"
 #include "bufstream.h"
+
+
+namespace sdfat {
+
+
 //==============================================================================
 /**
  * \class ArduinoInStream
@@ -148,4 +153,9 @@ class ArduinoOutStream : public ostream {
   ArduinoOutStream() {}
   Print* m_pr;
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // ArduinoStream_h

@@ -23,6 +23,11 @@
  * DEALINGS IN THE SOFTWARE.
  */
 #include "FatVolume.h"
+
+
+namespace sdfat {
+
+
 FatVolume* FatVolume::m_cwv = nullptr;
 //------------------------------------------------------------------------------
 bool FatVolume::chdir(const char *path) {
@@ -39,3 +44,6 @@ bool FatVolume::chdir(const char *path) {
  fail:
   return false;
 }
+
+
+}; // namespace sdfat

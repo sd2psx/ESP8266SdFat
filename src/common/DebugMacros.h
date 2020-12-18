@@ -32,12 +32,21 @@
 #ifndef DBG_FILE
 #error DBG_FILE not defined
 #endif  // DBG_FILE
+
+
+namespace sdfat {
+
+
 static void dbgPrint(uint16_t line) {
   Serial.print(F("DBG_FAIL: "));
   Serial.print(F(DBG_FILE));
   Serial.write('.');
   Serial.println(line);
 }
+
+
+}; // namespace sdfat
+
 
 #define DBG_PRINT_IF(b) if (b) {Serial.print(F(__FILE__));\
                         Serial.println(__LINE__);}

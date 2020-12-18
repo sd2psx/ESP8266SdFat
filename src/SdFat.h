@@ -37,6 +37,10 @@
 #include "sdios.h"
 #endif  // INCLUDE_SDIOS
 
+
+namespace sdfat {
+
+
 //------------------------------------------------------------------------------
 /** SdFat version */
 #define SD_FAT_VERSION "2.0.2"
@@ -466,4 +470,9 @@ class SdFile : public PrintFile<SdBaseFile> {
     FsDateTime::clearCallback();
   }
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // SdFat_h

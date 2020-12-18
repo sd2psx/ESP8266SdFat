@@ -12,6 +12,9 @@
 #include <SD.h>
 #else  // USE_SD_H
 #include "SdFat.h"
+
+using namespace sdfat;
+
 SdFat SD;
 #endif  // USE_SD_H
 

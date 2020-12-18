@@ -29,6 +29,11 @@
 #ifndef fstream_h
 #define fstream_h
 #include "iostream.h"
+
+
+namespace sdfat {
+
+
 //------------------------------------------------------------------------------
 /**
  * \class StreamBaseClass
@@ -327,4 +332,9 @@ class ofstream : public ostream, StreamBaseClass  {
   }
   /// @endcond
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // fstream_h

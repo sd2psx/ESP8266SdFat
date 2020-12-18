@@ -1,6 +1,9 @@
 // Force exFAT formatting for all SD cards larger than 512MB.
 #include "SdFat.h"
 
+using namespace sdfat;
+
+
 /*
   Change the value of SD_CS_PIN if you are using SPI and
   your hardware does not use the default value, SS.

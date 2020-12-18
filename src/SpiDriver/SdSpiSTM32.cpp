@@ -23,6 +23,11 @@
  * DEALINGS IN THE SOFTWARE.
  */
 #include "SdSpiDriver.h"
+
+
+namespace sdfat {
+
+
 #if defined(SD_USE_CUSTOM_SPI)\
   && (defined(__STM32F1__) || defined(__STM32F4__))
 #if defined(__STM32F1__)
@@ -75,3 +80,6 @@ void SdSpiArduinoDriver::send(const uint8_t* buf , size_t count) {
 #endif  // USE_STM32_DMA
 }
 #endif  // defined(SD_USE_CUSTOM_SPI) &&  defined(__STM32F1__)
+
+
+}; // namespace sdfat

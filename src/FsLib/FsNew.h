@@ -27,6 +27,10 @@
 #include <stddef.h>
 #include <stdint.h>
 
+
+namespace sdfat {
+
+
 /** 32-bit alignment */
 typedef uint32_t newalign_t;
 
@@ -41,6 +45,16 @@ typedef uint32_t newalign_t;
 /** Dimension of aligned area for etype or ftype class. */
 #define FS_ALIGN_DIM(etype, ftype) NEW_ALIGN_DIM(FS_SIZE(etype, ftype))
 
+
+}; // namespace sdfat
+
+
+// This placement new can't be inside a namespace, per C++ standard.  Hope this breaks nothing else.
+
 /** Custom new placement operator */
-void* operator new(size_t size, newalign_t* ptr);
+void* operator new(size_t size, sdfat::newalign_t* ptr);
+
+
+
+
 #endif  // FsNew_h

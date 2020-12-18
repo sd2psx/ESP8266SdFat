@@ -26,6 +26,10 @@
 #include "FsDateTime.h"
 #include "FmtNumber.h"
 
+
+namespace sdfat {
+
+
 static void dateTimeMs10(uint16_t* date, uint16_t* time, uint8_t* ms10) {
   *ms10 = 0;
   FsDateTime::callback2(date, time);
@@ -174,3 +178,6 @@ size_t fsPrintTimeZone(print_t* pr, int8_t tz) {
   str = fsFmtTimeZone(str, tz);
   return pr->write(reinterpret_cast<uint8_t*>(str), buf + sizeof(buf) - str);
 }
+
+
+}; // namespace sdfat

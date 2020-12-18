@@ -27,6 +27,11 @@
 #include "ExFatFile.h"
 #include "ExFatVolume.h"
 #include "upcase.h"
+
+
+namespace sdfat {
+
+
 //------------------------------------------------------------------------------
 bool ExFatFile::close() {
   bool rtn = sync();
@@ -746,3 +751,6 @@ bool ExFatFile::seekSet(uint64_t pos) {
   m_curCluster = tmp;
   return false;
 }
+
+
+}; // namespace sdfat

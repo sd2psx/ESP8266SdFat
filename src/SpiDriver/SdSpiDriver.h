@@ -29,6 +29,11 @@
 #ifndef SdSpiDriver_h
 #define SdSpiDriver_h
 #include "../common/SysCall.h"
+
+
+namespace sdfat {
+
+
 /**
  * Initialize SD chip select pin.
  *
@@ -42,6 +47,11 @@ void sdCsInit(SdCsPin_t pin);
  * \param[in] level SD card chip select level.
  */
 void sdCsWrite(SdCsPin_t pin, bool level);
+
+
+}; // namespace sdfat
+
+
 //------------------------------------------------------------------------------
 /** SPISettings for SCK frequency in Hz. */
 #define SD_SCK_HZ(maxSpeed) (maxSpeed)
@@ -69,20 +79,65 @@ void sdCsWrite(SdCsPin_t pin, bool level);
 #define SHARED_SPI 0
 #if SPI_DRIVER_SELECT < 2
 #include "SPI.h"
+
+
+namespace sdfat {
+
+
 /** Port type for Arduino SPI hardware driver. */
 typedef SPIClass SpiPort_t;
+
+
+}; // namespace sdfat
+
+
 #elif SPI_DRIVER_SELECT == 2
+
+
+namespace sdfat {
+
+
 class SdSpiSoftDriver;
 /** Port type for software SPI driver. */
 typedef SdSpiSoftDriver SpiPort_t;
+
+
+}; // namespace sdfat
+
+
 #elif SPI_DRIVER_SELECT == 3
+
+
+namespace sdfat {
+
+
 class SdSpiBaseClass;
 /** Port type for extrernal SPI driver. */
 typedef SdSpiBaseClass  SpiPort_t;
+
+
+}; // namespace sdfat
+
+
 #else  // SPI_DRIVER_SELECT
+
+
+namespace sdfat {
+
+
 typedef void*  SpiPort_t;
+
+
+}; // namespace sdfat
+
+
 #endif  // SPI_DRIVER_SELECT
 //------------------------------------------------------------------------------
+
+
+namespace sdfat {
+
+
 /**
  * \class SdSpiConfig
  * \brief SPI card configuration.
@@ -130,13 +185,28 @@ class SdSpiConfig {
   /** SPI port */
   SpiPort_t* spiPort;
 };
+
+
+}; // namespace sdfat
+
+
 #if SPI_DRIVER_SELECT < 2
 #include "SdSpiArduinoDriver.h"
 #elif SPI_DRIVER_SELECT == 2
 #include "SdSpiSoftDriver.h"
 #elif SPI_DRIVER_SELECT == 3
 #include "SdSpiBaseClass.h"
+
+
+namespace sdfat {
+
+
 typedef SdSpiBaseClass SdSpiDriver;
+
+
+}; // namespace sdfat
+
+
 #else  // SPI_DRIVER_SELECT
 #error Invalid SPI_DRIVER_SELECT
 #endif  // SPI_DRIVER_SELECT

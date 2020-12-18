@@ -31,6 +31,11 @@
 #include <stdint.h>
 #include <stddef.h>
 #include "../SdFatConfig.h"
+
+
+namespace sdfat {
+
+
 #if __cplusplus < 201103
 #warning nullptr defined
 /** Define nullptr if not C++11 */
@@ -101,4 +106,9 @@ typedef PrintBasic print_t;
 typedef PrintBasic stream_t;
 inline void SysCall::yield() {}
 #endif  // ENABLE_ARDUINO_FEATURES
+
+
+}; // namespace sdfat
+
+
 #endif  // SysCall_h

@@ -4,6 +4,9 @@
 #include "SdFat.h"
 #include "BufferedPrint.h"
 
+using namespace sdfat;
+
+
 // SD_FAT_TYPE = 0 for SdFat/File as defined in SdFatConfig.h,
 // 1 for FAT16/FAT32, 2 for exFAT, 3 for FAT16/FAT32 and exFAT.
 #define SD_FAT_TYPE 0

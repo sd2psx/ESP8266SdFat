@@ -25,6 +25,8 @@
 #include "FreeStack.h"
 #include "AvrAdcLogger.h"
 
+using namespace sdfat;
+
 // Save SRAM if 328.
 #ifdef __AVR_ATmega328P__
 #include "MinimumSerial.h"

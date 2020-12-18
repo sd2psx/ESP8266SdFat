@@ -2,6 +2,9 @@
 // Demonstrates yield() efficiency for SDIO modes.
 #include "SdFat.h"
 
+using namespace sdfat;
+
+
 // Use built-in SD for SPI modes on Teensy 3.5/3.6.
 // Teensy 4.0 use first SPI port.
 // SDCARD_SS_PIN is defined for the built-in SD on some boards.

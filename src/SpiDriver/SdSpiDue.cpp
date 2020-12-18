@@ -23,6 +23,11 @@
  * DEALINGS IN THE SOFTWARE.
  */
 #include "SdSpiDriver.h"
+
+
+namespace sdfat {
+
+
 #if defined(SD_USE_CUSTOM_SPI) && defined(ARDUINO_SAM_DUE)
 /* Use SAM3X DMAC if nonzero */
 #define USE_SAM3X_DMAC 1
@@ -210,3 +215,6 @@ void SdSpiArduinoDriver::send(const uint8_t* buf , size_t count) {
   while (pSpi->SPI_SR & (SPI_SR_OVRES | SPI_SR_RDRF)) {pSpi->SPI_RDR;}
 }
 #endif  // defined(SD_USE_CUSTOM_SPI) && defined(ARDUINO_SAM_DUE)
+
+
+}; // namespace sdfat

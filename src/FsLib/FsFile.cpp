@@ -23,6 +23,11 @@
  * DEALINGS IN THE SOFTWARE.
  */
 #include "FsLib.h"
+
+
+namespace sdfat {
+
+
 //------------------------------------------------------------------------------
 FsBaseFile::FsBaseFile(const FsBaseFile& from) {
   m_fFile = nullptr;
@@ -184,3 +189,6 @@ bool FsBaseFile::rmdir() {
   }
   return false;
 }
+
+
+}; // namespace sdfat

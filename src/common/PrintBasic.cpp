@@ -25,6 +25,10 @@
 #include "PrintBasic.h"
 #include <math.h>
 
+
+namespace sdfat {
+
+
 size_t PrintBasic::print(long n, uint8_t base) {
   if (n < 0 && base == 10) {
     return print('-') + printNum(-n, base);
@@ -87,3 +91,6 @@ size_t PrintBasic::printDouble(double n, uint8_t prec) {
   }
   return rtn;
 }
+
+
+}; // namespace sdfat

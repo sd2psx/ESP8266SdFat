@@ -38,6 +38,10 @@
 #include "ExFatTypes.h"
 #include "ExFatPartition.h"
 
+
+namespace sdfat {
+
+
 class ExFatVolume;
 
 //------------------------------------------------------------------------------
@@ -780,7 +784,15 @@ class ExFatFile {
   uint8_t       m_flags;
 };
 
+
+}; // namespace sdfat
+
+
 #include "../common/ArduinoFiles.h"
+
+namespace sdfat {
+
+
 /**
  * \class ExFile
  * \brief exFAT file with Arduino Stream.
@@ -798,4 +810,9 @@ class ExFile : public StreamFile<ExFatFile, uint64_t> {
     return tmpFile;
   }
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // ExFatFile_h

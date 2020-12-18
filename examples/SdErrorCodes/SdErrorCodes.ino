@@ -1,5 +1,8 @@
 // Print a list of error codes, symbols, and comments.
 #include "SdFat.h"
+
+using namespace sdfat;
+
 void setup() {
   Serial.begin(9600);
   while (!Serial) {}

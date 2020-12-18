@@ -26,6 +26,11 @@
 #define SdCardInterface_h
 #include "../common/BlockDeviceInterface.h"
 #include "SdCardInfo.h"
+
+
+namespace sdfat {
+
+
 /**
  * \class SdCardInterface
  * \brief Abstract interface for an SD card.
@@ -99,4 +104,8 @@ class SdCardInterface : public BlockDeviceInterface {
    */
   virtual bool writeStop() = 0;
 };
+
+
+}; // namespace sdfat
+
 #endif  // SdCardInterface_h

@@ -26,6 +26,10 @@
 #define ExFatTypes_h
 #include "ExFatConfig.h"
 
+
+namespace sdfat {
+
+
 #if __cplusplus < 201103
 #warning no char16_t
 typedef uint16_t ExChar16_t;
@@ -53,4 +57,9 @@ struct DirPos_t {
   /** directory is contiguous */
   bool     isContiguous;
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // ExFatTypes_h

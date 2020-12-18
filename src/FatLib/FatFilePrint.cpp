@@ -26,6 +26,11 @@
 #define DBG_FILE "FatFilePrint.cpp"
 #include "../common/DebugMacros.h"
 #include "FatFile.h"
+
+
+namespace sdfat {
+
+
 //------------------------------------------------------------------------------
 static void printHex(print_t* pr, uint8_t w, uint16_t h) {
   char buf[5];
@@ -156,3 +161,6 @@ size_t FatFile::printFileSize(print_t* pr) {
   }
   return pr->write(buf);
 }
+
+
+}; // namespace sdfat

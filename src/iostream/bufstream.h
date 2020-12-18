@@ -30,6 +30,11 @@
  */
 #include <string.h>
 #include "iostream.h"
+
+
+namespace sdfat {
+
+
 //==============================================================================
 /**
  * \class ibufstream
@@ -169,4 +174,9 @@ class obufstream : public ostream {
   size_t m_size;
   size_t m_in;
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // bufstream_h

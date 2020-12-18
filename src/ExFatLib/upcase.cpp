@@ -35,6 +35,10 @@
 #define readTable16(sym) (sym)
 #endif  // __AVR__
 
+
+namespace sdfat {
+
+
 struct map16 {
   uint16_t base;
   int8_t off;
@@ -275,3 +279,6 @@ uint32_t upcaseChecksum(uint16_t uc, uint32_t sum) {
   sum = (sum << 31) + (sum >> 1) + (uc >> 8);
   return sum;
 }
+
+
+}; // namespace sdfat

@@ -26,6 +26,11 @@
 #define ExFatVolume_h
 #include "ExFatPartition.h"
 #include "ExFatFile.h"
+
+
+namespace sdfat {
+
+
 //==============================================================================
 /**
  * \class ExFatVolume
@@ -345,4 +350,9 @@ class ExFatVolume : public ExFatPartition {
   ExFatFile m_vwd;
   static ExFatVolume* m_cwv;
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // ExFatVolume_h

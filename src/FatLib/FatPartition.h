@@ -34,6 +34,10 @@
 #include "../common/BlockDevice.h"
 #include "../common/FsStructs.h"
 
+
+namespace sdfat {
+
+
 /** Type for FAT12 partition */
 const uint8_t FAT_TYPE_FAT12 = 12;
 
@@ -365,4 +369,9 @@ class FatPartition {
     return cluster > m_lastCluster;
   }
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // FatPartition

@@ -32,7 +32,15 @@
 #include <stddef.h>
 #include <string.h>
 
+
+namespace sdfat {
+
+
 class __FlashStringHelper;
+
+
+}; // namespace sdfat
+
 
 #ifdef F
 #warning F() macro defined for non Arduino System
@@ -50,6 +58,10 @@ class __FlashStringHelper;
 #define OCT 8
 #define DEC 10
 #define HEX 16
+
+
+namespace sdfat {
+
 
 class PrintBasic {
  public:
@@ -166,4 +178,9 @@ class StreamBasic : public PrintBasic {
   virtual int peek() = 0;
   virtual int read() = 0;
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // PrintBasic_h

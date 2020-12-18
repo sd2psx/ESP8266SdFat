@@ -4,6 +4,9 @@
 // This example will also run on an Uno and other boards using software SPI.
 //
 #include "SdFat.h"
+
+using namespace sdfat;
+
 #if SPI_DRIVER_SELECT == 2  // Must be set in SdFat/SdFatConfig.h
 
 // SD_FAT_TYPE = 0 for SdFat/File as defined in SdFatConfig.h,

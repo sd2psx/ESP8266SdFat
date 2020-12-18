@@ -24,6 +24,11 @@
  */
 #ifndef CompileDateTime_h
 #define CompileDateTime_h
+
+
+namespace sdfat {
+
+
 // Note - these functions will compile to a few bytes
 //        since they are evaluated at compile time.
 
@@ -71,4 +76,9 @@ constexpr uint8_t compileMinute() {
 constexpr uint8_t compileSecond() {
   return 10*(__TIME__[6] - '0') + __TIME__[7] - '0';
 }
+
+
+}; //namespace sdfat
+
+
 #endif  // CompileDateTime_h

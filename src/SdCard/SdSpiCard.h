@@ -33,6 +33,11 @@
 #include "SdCardInfo.h"
 #include "SdCardInterface.h"
 #include "../SpiDriver/SdSpiDriver.h"
+
+
+namespace sdfat {
+
+
 //==============================================================================
 /**
  * \class SdSpiCard
@@ -363,4 +368,9 @@ class SdSpiCard {
   uint8_t m_status;
   uint8_t m_type;
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // SdSpiCard_h

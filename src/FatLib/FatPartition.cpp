@@ -27,6 +27,11 @@
 #include "../common/DebugMacros.h"
 #include "../common/FsStructs.h"
 #include "FatPartition.h"
+
+
+namespace sdfat {
+
+
 //------------------------------------------------------------------------------
 cache_t* FatCache::read(uint32_t sector, uint8_t option) {
   if (m_lbn != sector) {
@@ -536,3 +541,6 @@ bool FatPartition::init(BlockDevice* dev, uint8_t part) {
  fail:
   return false;
 }
+
+
+}; // namespace sdfat

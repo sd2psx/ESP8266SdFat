@@ -23,6 +23,11 @@
  * DEALINGS IN THE SOFTWARE.
  */
 #include "ExFatVolume.h"
+
+
+namespace sdfat {
+
+
 ExFatVolume* ExFatVolume::m_cwv = nullptr;
 //-----------------------------------------------------------------------------
 bool ExFatVolume::chdir(const ExChar_t* path) {
@@ -39,3 +44,6 @@ bool ExFatVolume::chdir(const ExChar_t* path) {
  fail:
   return false;
 }
+
+
+}; // namespace sdfat

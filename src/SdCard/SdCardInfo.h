@@ -26,6 +26,11 @@
 #define SdCardInfo_h
 #include <stdint.h>
 #include "../common/SysCall.h"
+
+
+namespace sdfat {
+
+
 // Based on the document:
 //
 // SD Specifications
@@ -487,4 +492,9 @@ typedef struct SdStatus {
   uint8_t reservedManufacturer[40];
 } SdStatus_t;
 #endif  // DOXYGEN_SHOULD_SKIP_THIS
+
+
+}; // namespace sdfat
+
+
 #endif  // SdCardInfo_h

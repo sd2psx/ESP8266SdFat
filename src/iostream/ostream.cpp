@@ -24,6 +24,11 @@
  */
 #include <string.h>
 #include "ostream.h"
+
+
+namespace sdfat {
+
+
 #ifndef PSTR
 #define PSTR(x) x
 #endif  // PSTR
@@ -151,3 +156,6 @@ void ostream::putStr(const char *str) {
   putstr(str);
   do_fill(n);
 }
+
+
+}; // namespace sdfat

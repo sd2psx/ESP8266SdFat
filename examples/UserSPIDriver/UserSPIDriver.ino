@@ -3,6 +3,9 @@
 #include "SdFat.h"
 #include "SPI.h"  // Only required if you use features in the SPI library.
 
+using namespace sdfat;
+
+
 #if SPI_DRIVER_SELECT == 3  // Must be set in SdFat/SdFatConfig.h
 
 // SD chip select pin.

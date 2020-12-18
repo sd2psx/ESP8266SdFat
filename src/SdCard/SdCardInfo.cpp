@@ -23,6 +23,11 @@
  * DEALINGS IN THE SOFTWARE.
  */
 #include "SdCardInfo.h"
+
+
+namespace sdfat {
+
+
 //------------------------------------------------------------------------------
 #undef SD_CARD_ERROR
 #define SD_CARD_ERROR(e, m) case SD_CARD_ERROR_##e: pr->print(F(#e)); break;
@@ -43,3 +48,6 @@ void printSdErrorText(print_t* pr, uint8_t code) {
     default: pr->print(F("Unknown error"));
   }
 }
+
+
+}; // namespce sdfat

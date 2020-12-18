@@ -49,6 +49,11 @@
 #include "application.h"
 #endif  // PLATFORM_ID
 #endif  // ENABLE_ARDUINO_FEATURES
+
+
+namespace sdfat {
+
+
 //------------------------------------------------------------------------------
 /**
  * Set INCLUDE_SDIOS nonzero to include sdios.h in SdFat.h.
@@ -349,4 +354,9 @@ typedef uint8_t SdCsPin_t;
 /** Default is no SDIO. */
 #define HAS_SDIO_CLASS 0
 #endif  // HAS_SDIO_CLASS
+
+
+}; // namespace sdfat
+
+
 #endif  // SdFatConfig_h

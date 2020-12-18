@@ -32,6 +32,11 @@
 #if SPI_DRIVER_SELECT == 0 && SD_HAS_CUSTOM_SPI
 #define SD_USE_CUSTOM_SPI
 #endif  // SPI_DRIVER_SELECT == 0 && SD_HAS_CUSTOM_SPI
+
+
+namespace sdfat {
+
+
 /**
  * \class SdSpiArduinoDriver
  * \brief Optimized SPI class for access to SD and SDHC flash memory cards.
@@ -87,6 +92,11 @@ class SdSpiArduinoDriver {
 };
 /** Typedef for use of SdSpiArduinoDriver */
 typedef SdSpiArduinoDriver SdSpiDriver;
+
+
+}; // namespace sdfat
+
+
 //------------------------------------------------------------------------------
 #ifndef SD_USE_CUSTOM_SPI
 #include "SdSpiLibDriver.h"

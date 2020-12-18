@@ -24,6 +24,11 @@
  */
 #ifndef SdSpiAvr_h
 #define SdSpiAvr_h
+
+
+namespace sdfat {
+
+
 // Use of in-line for AVR to save flash.
 #define nop asm volatile ("nop\n\t")
 //------------------------------------------------------------------------------
@@ -83,4 +88,9 @@ inline void SdSpiArduinoDriver::send(const uint8_t* buf , size_t count) {
   }
   while (!(SPSR & (1 << SPIF))) {}
 }
+
+
+}; // namespace sdfat
+
+
 #endif  // SdSpiAvr_h

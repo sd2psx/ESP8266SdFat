@@ -27,6 +27,10 @@
 #include "../common/SysCall.h"
 #include "SdCardInterface.h"
 
+
+namespace sdfat {
+
+
 #define FIFO_SDIO 0
 #define DMA_SDIO 1
 /**
@@ -243,4 +247,8 @@ class SdioCard : public SdCardInterface {
   SdioConfig m_sdioConfig;
   uint8_t m_curState;
 };
+
+
+}; // namespace sdfat
+
 #endif  // SdioCard_h

@@ -23,6 +23,11 @@
  * DEALINGS IN THE SOFTWARE.
  */
 #include "SdSpiDriver.h"
+
+
+namespace sdfat {
+
+
 #if defined(SD_USE_CUSTOM_SPI) &&  defined(__arm__) && defined(CORE_TEENSY)
 #define USE_BLOCK_TRANSFER 1
 //------------------------------------------------------------------------------
@@ -84,3 +89,6 @@ void SdSpiArduinoDriver::send(const uint8_t* buf , size_t count) {
   }
 }
 #endif  // defined(SD_USE_CUSTOM_SPI) && defined(__arm__) &&defined(CORE_TEENSY)
+
+
+}; // namespace sdfat

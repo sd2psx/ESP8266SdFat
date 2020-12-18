@@ -156,6 +156,11 @@ unsigned divu10(unsigned n) {
 // return q + (r > 9);
 }
 */
+
+
+namespace sdfat {
+
+
 //------------------------------------------------------------------------------
 // Format 16-bit unsigned
 char* fmtBase10(char* str, uint16_t n) {
@@ -514,3 +519,6 @@ float scanFloat(const char* str, const char** ptr) {
  fail:
   return 0;
 }
+
+
+}; // namespace sdfat

@@ -25,6 +25,11 @@
 #include "FatVolume.h"
 #include "FatFile.h"
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
+
+
+namespace sdfat {
+
+
 //------------------------------------------------------------------------------
 static void printHex(print_t* pr, uint8_t h) {
   if (h < 16) {
@@ -164,4 +169,7 @@ void FatPartition::dmpFat(print_t* pr, uint32_t start, uint32_t count) {
     pr->println();
   }
 }
+
+
+}; // namespace sdfat
 #endif  // DOXYGEN_SHOULD_SKIP_THIS

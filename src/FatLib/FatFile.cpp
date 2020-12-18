@@ -26,6 +26,11 @@
 #include "../common/DebugMacros.h"
 #include "FatFile.h"
 #include "FatVolume.h"
+
+
+namespace sdfat {
+
+
 //------------------------------------------------------------------------------
 // Add a cluster to a file.
 bool FatFile::addCluster() {
@@ -1489,3 +1494,6 @@ size_t FatFile::write(const void* buf, size_t nbyte) {
   m_error |= WRITE_ERROR;
   return -1;
 }
+
+
+}; // namespace sdfat

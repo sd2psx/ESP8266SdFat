@@ -3,6 +3,9 @@
 //       No exFAT functions will be defined for char* paths.
 //       The SdFs class cannot be used.
 #include "SdFat.h"
+
+using namespace sdfat;
+
 #if USE_EXFAT_UNICODE_NAMES
 
 // SDCARD_SS_PIN is defined for the built-in SD on some boards.

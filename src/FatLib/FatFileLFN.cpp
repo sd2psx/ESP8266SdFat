@@ -26,6 +26,11 @@
 #include "../common/DebugMacros.h"
 #include "FatFile.h"
 #include "FatVolume.h"
+
+
+namespace sdfat {
+
+
 //------------------------------------------------------------------------------
 //
 uint8_t FatFile::lfnChecksum(uint8_t* name) {
@@ -697,3 +702,6 @@ bool FatFile::lfnUniqueSfn(fname_t* fname) {
   return true;
 }
 #endif  // #if USE_LONG_FILE_NAMES
+
+
+}; // namespace sdfat

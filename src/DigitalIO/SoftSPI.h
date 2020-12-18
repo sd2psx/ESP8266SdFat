@@ -28,6 +28,11 @@
 #ifndef SoftSPI_h
 #define SoftSPI_h
 #include "DigitalPin.h"
+
+
+namespace sdfat {
+
+
 //------------------------------------------------------------------------------
 /** Nop for timing. */
 #define nop asm volatile ("nop\n\t")
@@ -157,5 +162,10 @@ class SoftSPI {
   }
   //----------------------------------------------------------------------------
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // SoftSPI_h
 /** @} */

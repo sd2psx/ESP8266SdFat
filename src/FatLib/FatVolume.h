@@ -26,6 +26,11 @@
 #define FatVolume_h
 #include "FatPartition.h"
 #include "FatFile.h"
+
+
+namespace sdfat {
+
+
 /**
  * \file
  * \brief FatVolume class
@@ -337,4 +342,9 @@ class FatVolume : public  FatPartition {
   FatFile m_vwd;
   static FatVolume* m_cwv;
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // FatVolume_h

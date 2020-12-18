@@ -30,6 +30,11 @@
  */
 #include <stdarg.h>
 #include "FmtNumber.h"
+
+
+namespace sdfat {
+
+
 /** test for digit */
 #define isDigit(d) ('0' <= (d) && (d) <= '9')
 /** control for supported floating formats */
@@ -497,4 +502,9 @@ int mprintf(F* file, const __FlashStringHelper *ifsh, ...) {
   va_end(ap);
   return rtn;
 }
+
+
+}; // namespace sdfat
+
+
 #endif  // PrintTemplates_h

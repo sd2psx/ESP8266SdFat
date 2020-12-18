@@ -29,6 +29,11 @@
  * \brief \ref ostream class
  */
 #include "ios.h"
+
+
+namespace sdfat {
+
+
 //==============================================================================
 /**
  * \class ostream
@@ -345,4 +350,9 @@ class ostream : public virtual ios {
     do_fill(len);
   }
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // ostream_h

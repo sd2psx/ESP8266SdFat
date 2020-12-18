@@ -32,6 +32,11 @@
 #include "../common/BlockDevice.h"
 #include "ExFatConfig.h"
 #include "ExFatTypes.h"
+
+
+namespace sdfat {
+
+
 /** Type for exFAT partition */
 const uint8_t FAT_TYPE_EXFAT = 64;
 
@@ -268,4 +273,9 @@ class ExFatPartition {
   uint8_t  m_fatType;
   uint8_t  m_sectorsPerClusterShift;
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // ExFatPartition_h

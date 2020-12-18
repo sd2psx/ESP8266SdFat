@@ -28,6 +28,11 @@
 #include "../common/SysCall.h"
 #include "../common/BlockDevice.h"
 #include "upcase.h"
+
+
+namespace sdfat {
+
+
 /**
  * \class ExFatFormatter
  * \brief Format an exFAT volume.
@@ -55,4 +60,9 @@ class ExFatFormatter {
   BlockDevice* m_dev;
   uint8_t* m_secBuf;
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // ExFatFormatter_h

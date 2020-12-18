@@ -25,6 +25,11 @@
 #ifndef ios_h
 #define ios_h
 #include "../FsLib/FsLib.h"
+
+
+namespace sdfat {
+
+
 /**
  * \file
  * \brief \ref ios_base and \ref ios classes
@@ -445,4 +450,9 @@ class ios : public ios_base {
  private:
   iostate m_iostate;
 };
+
+
+}; // namespace sdfat
+
+
 #endif  // ios_h

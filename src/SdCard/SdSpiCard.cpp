@@ -23,6 +23,12 @@
  * DEALINGS IN THE SOFTWARE.
  */
 #include "SdSpiCard.h"
+
+
+namespace sdfat {
+
+
+
 //==============================================================================
 // Debug aids
 #define DBG_PROFILE_STATS 0
@@ -381,9 +387,9 @@ uint8_t SdSpiCard::cardCommand(uint8_t cmd, uint32_t arg) {
   return m_status;
 }
 //------------------------------------------------------------------------------
-void SdSpiCard::dbgClearStats() {::dbgClearStats();}
+void SdSpiCard::dbgClearStats() {sdfat::dbgClearStats();}
 //------------------------------------------------------------------------------
-void SdSpiCard::dbgPrintStats() {::dbgPrintStats();}
+void SdSpiCard::dbgPrintStats() {sdfat::dbgPrintStats();}
 //------------------------------------------------------------------------------
 bool SdSpiCard::erase(uint32_t firstSector, uint32_t lastSector) {
   csd_t csd;
@@ -867,3 +873,6 @@ bool SdSpiCard::writeStop() {
   spiStop();
   return false;
 }
+
+
+}; // namespace sdfat
