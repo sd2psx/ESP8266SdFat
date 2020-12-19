@@ -356,6 +356,14 @@ typedef uint8_t SdCsPin_t;
 #endif  // HAS_SDIO_CLASS
 
 
+#ifdef HOST_MOCK
+#undef INCLUDE_SDIOS
+#define INCLUDE_SDIOS 0
+#undef SS
+#define SS 0
+#endif
+
+
 }; // namespace sdfat
 
 

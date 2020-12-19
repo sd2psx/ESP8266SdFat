@@ -58,7 +58,7 @@ class SdBase : public Vol {
    * \param[in] csPin SD card chip select pin.
    * \return true for success or false for failure.
    */
-  bool begin(SdCsPin_t csPin = 4 /* SS */) {
+  bool begin(SdCsPin_t csPin = SS) {
 #ifdef BUILTIN_SDCARD
     if (csPin == BUILTIN_SDCARD) {
       return begin(SdioConfig(FIFO_SDIO));
