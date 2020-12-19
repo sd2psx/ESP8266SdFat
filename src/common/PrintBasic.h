@@ -43,7 +43,7 @@ class __FlashStringHelper;
 
 
 #ifdef F
-#warning F() macro defined for non Arduino System
+//#warning F() macro defined for non Arduino System
 #elif defined(__AVR__)
 #include <avr/pgmspace.h>
 #define F(str) (reinterpret_cast<const __FlashStringHelper *>(PSTR(str)))
