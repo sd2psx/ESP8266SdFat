@@ -65,23 +65,28 @@ inline int FreeStack() {
   register uint32_t sp asm("sp");
   return reinterpret_cast<char*>(sp) - reinterpret_cast<char*>(sbrk(0));
 }
-#else  // defined(__AVR__) || defined(DOXYGEN)
-#ifndef FREE_STACK_CPP
-#warning FreeStack is not defined for this system.
-#endif  // FREE_STACK_CPP
+#elif defined(ESP8266)
 
+
+#include <Arduino.h>
 
 namespace sdfat {
 
 
-// TODO - Patch in ESP.getfreestack()
 inline int FreeStack() {
-  return 0;
+  int free = (int)ESP.getFreeContStack();
+  ESP.resetFreeContStack();
+  return free;
 }
 
 
 }; // namespace sdfat
 
+
+#else  // defined(__AVR__) || defined(DOXYGEN)
+#ifndef FREE_STACK_CPP
+#warning FreeStack is not defined for this system.
+#endif  // FREE_STACK_CPP
 
 #endif  // defined(__AVR__) || defined(DOXYGEN)
 #if defined(HAS_UNUSED_STACK) || defined(DOXYGEN)
