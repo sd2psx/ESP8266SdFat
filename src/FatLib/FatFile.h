@@ -937,6 +937,8 @@ class FatFile {
    *
    */
   size_t write(const void* buf, size_t count);
+
+  int availableSpaceForWrite();
 //------------------------------------------------------------------------------
 #if ENABLE_ARDUINO_SERIAL
   /** List directory contents.
