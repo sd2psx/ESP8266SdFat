@@ -78,7 +78,7 @@ namespace sdfat {
 #if defined(__AVR__) && FLASHEND < 0X8000
 // 32K AVR boards.
 #define SDFAT_FILE_TYPE 1
-#elif defined(__arm__)
+#elif defined(__arm__) && !defined(ARDUINO_ARCH_RP2040)
 // ARM boards usually have plenty of memory
 #define SDFAT_FILE_TYPE 3
 #else  // defined(__AVR__) && FLASHEND < 0X8000
@@ -275,7 +275,7 @@ typedef uint8_t SdCsPin_t;
  * with no memory alignment restrictions.
  */
 #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__ && !defined(__SAMD21G18A__)\
-  && !defined(__MKL26Z64__) && !defined(ESP8266)
+  && !defined(__MKL26Z64__) && !defined(ESP8266) && !defined(ARDUINO_ARCH_RP2040)
 #define USE_SIMPLE_LITTLE_ENDIAN 1
 #else  // __BYTE_ORDER_
 #define USE_SIMPLE_LITTLE_ENDIAN 0
