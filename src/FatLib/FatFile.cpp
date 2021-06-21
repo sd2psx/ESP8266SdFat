@@ -1498,21 +1498,10 @@ size_t FatFile::write(const void* buf, size_t nbyte) {
 //-------------------------------------------------------
 // EFP3 - Match upstream Arduino hack
 int FatFile::availableSpaceForWrite() {
-  if (!isWritable()) {
+  // error if not a normal file or is read-only
+  if (!isWritable() || m_vol->m_blockDev->isBusy()) {
     // error if not a normal file or is read-only
     return 0;
-  }
-
-  if (m_vol->m_blockDev->isBusy()) {
-    // SdSpiCard::isTimedOut is private...
-    decltype(millis()) t0 = millis();
-    while (m_vol->m_blockDev->isBusy()) {
-      if ((millis() - t0) > SD_READ_TIMEOUT) {
-        // busy for too long ?
-        return 0;
-      }
-      yield();
-    }
   }
 
   // seek to end of file if append flag
