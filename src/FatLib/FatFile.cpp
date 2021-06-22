@@ -1508,12 +1508,14 @@ int FatFile::availableSpaceForWrite() {
       return 0;
     }
   }
-  uint8_t sectorOfCluster = m_vol->sectorOfCluster(m_curPosition);
+  // remaining space in current sector
   uint16_t sectorOffset = m_curPosition & m_vol->sectorMask();
-  if (sectorOfCluster == 0 && sectorOffset == 0) {
-    return 0;
+  int afw = m_vol->bytesPerSector() - sectorOffset - 1;
+  if (afw == 0 && m_vol->freeClusterCount() > 0) {
+    // a new sector can be available
+    afw = m_vol->bytesPerSector();
   }
-  return m_vol->bytesPerSector() - sectorOffset - 1;
+  return afw;
 }
 //-------------------------------------------------------
 
