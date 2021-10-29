@@ -42,8 +42,10 @@ namespace sdfat {
 
 
 //------------------------------------------------------------------------------
-/** SdFat version */
-#define SD_FAT_VERSION "2.0.2"
+/** SdFat version  for cpp use. */
+#define SD_FAT_VERSION 20003
+/** SdFat version as string. */
+#define SD_FAT_VERSION_STR "2.0.3"
 //==============================================================================
 /**
  * \class SdBase
@@ -361,7 +363,7 @@ class SdFat32 : public SdBase<FatVolume> {
    */
   bool format(print_t* pr = nullptr) {
     FatFormatter fmt;
-    uint8_t* cache = reinterpret_cast<uint8_t*>(cacheClear());
+    uint8_t* cache = cacheClear();
     if (!cache) {
       return false;
     }
@@ -382,7 +384,7 @@ class SdExFat : public SdBase<ExFatVolume> {
    */
   bool format(print_t* pr = nullptr) {
     ExFatFormatter fmt;
-    uint8_t* cache = reinterpret_cast<uint8_t*>(cacheClear());
+    uint8_t* cache = cacheClear();
     if (!cache) {
       return false;
     }
