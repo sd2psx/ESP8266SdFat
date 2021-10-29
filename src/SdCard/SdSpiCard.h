@@ -58,7 +58,7 @@ class SdSpiCard {
 #ifndef HOST_MOCK
  public:
   /** Construct an instance of SdSpiCard. */
-  SdSpiCard() : m_errorCode(SD_CARD_ERROR_INIT_NOT_CALLED), m_type(0) {}
+  SdSpiCard() {}
   /** Initialize the SD card.
    * \param[in] spiConfig SPI card configuration.
    * \return true for success or false for failure.
@@ -225,11 +225,11 @@ class SdSpiCard {
    * \return true for success or false for failure.
    */
   bool writeSector(uint32_t sector, const uint8_t* src) {
-#if ENABLE_DEDICATED_SPI
-    return writeSectors(sector, src, 1);
-#else  // ENABLE_DEDICATED_SPI
-    return writeSingle(sector, src);
-#endif  // ENABLE_DEDICATED_SPI
+    if (m_sharedSpi) {
+      return writeSingle(sector, src);
+    } else {
+      return writeSectors(sector, src, 1);
+    }
   }
   /**
    * Writes a 512 byte sector to an SD card.
@@ -366,13 +366,15 @@ class SdSpiCard {
   static const uint8_t WRITE_STATE = 2;
   uint32_t m_curSector;
   uint8_t m_curState;
-  bool    m_sharedSpi;
+  bool m_sharedSpi = true;
+#else  // ENABLE_DEDICATED_SPI
+  static const bool m_sharedSpi = true;
 #endif  // ENABLE_DEDICATED_SPI
   SdCsPin_t m_csPin;
-  uint8_t m_errorCode;
+  uint8_t m_errorCode = SD_CARD_ERROR_INIT_NOT_CALLED;
   bool    m_spiActive;
   uint8_t m_status;
-  uint8_t m_type;
+  uint8_t m_type = 0;
 #else // HOST_MOCK
  public:
   SdSpiCard() : m_errorCode(SD_CARD_ERROR_INIT_NOT_CALLED), m_type(0) {

@@ -38,8 +38,7 @@ namespace sdfat {
  */
 class ExFatVolume : public ExFatPartition {
  public:
-  ExFatVolume() {
-  }
+  ExFatVolume() {}
   /**
    * Initialize an FatVolume object.
    * \param[in] dev Device block driver.
@@ -54,7 +53,7 @@ class ExFatVolume : public ExFatPartition {
     if (!chdir()) {
       return false;
     }
-    if (setCwv) {
+    if (setCwv || !m_cwv) {
       m_cwv = this;
     }
     return true;

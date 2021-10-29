@@ -33,7 +33,7 @@ namespace sdfat {
 
 
 //------------------------------------------------------------------------------
-bool FatFile::getSFN(char* name) {
+size_t FatFile::getSFN(char* name) {
   uint8_t j = 0;
   uint8_t lcBit = FAT_CASE_LC_BASE;
   DirFat_t* dir;
@@ -45,7 +45,7 @@ bool FatFile::getSFN(char* name) {
   if (isRoot()) {
     name[0] = '/';
     name[1] = '\0';
-    return true;
+    return 1;
   }
   // cache entry
   dir = reinterpret_cast<DirFat_t*>(cacheDirEntry(FsCache::CACHE_FOR_READ));
@@ -69,11 +69,12 @@ bool FatFile::getSFN(char* name) {
     }
     name[j++] = c;
   }
-  name[j] = 0;
-  return true;
+  name[j] = '\0';
+  return j;
 
  fail:
-  return false;
+  name[0] = '\0';
+  return 0;
 }
 //------------------------------------------------------------------------------
 size_t FatFile::printSFN(print_t* pr) {
@@ -89,7 +90,7 @@ size_t FatFile::printSFN(print_t* pr) {
 }
 #if !USE_LONG_FILE_NAMES
 //------------------------------------------------------------------------------
-bool FatFile::getName(char* name, size_t size) {
+size_t FatFile::getName(char* name, size_t size) {
   return size < 13 ? 0 : getSFN(name);
 }
 //------------------------------------------------------------------------------

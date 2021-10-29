@@ -43,7 +43,7 @@ namespace sdfat {
 class ibufstream : public istream {
  public:
   /** Constructor */
-  ibufstream() : m_buf(nullptr), m_len(0) {}
+  ibufstream() {}
   /** Constructor
    * \param[in] str pointer to string to be parsed
    * Warning: The string will not be copied so must stay in scope.
@@ -94,8 +94,8 @@ class ibufstream : public istream {
   }
   /// @endcond
  private:
-  const char* m_buf;
-  size_t m_len;
+  const char* m_buf = nullptr;
+  size_t m_len = 0;
   size_t m_pos;
 };
 //==============================================================================
@@ -106,7 +106,7 @@ class ibufstream : public istream {
 class obufstream : public ostream {
  public:
   /** constructor */
-  obufstream() : m_in(0) {}
+  obufstream() {}
   /** Constructor
    * \param[in] buf buffer for formatted string
    * \param[in] size buffer size
@@ -136,7 +136,7 @@ class obufstream : public ostream {
  protected:
   /// @cond SHOW_PROTECTED
   void putch(char c) {
-    if (m_in >= (m_size - 1)) {
+    if ((m_in + 1) >= m_size) {
       setstate(badbit);
       return;
     }
@@ -164,15 +164,14 @@ class obufstream : public ostream {
   bool sync() {
     return true;
   }
-
   pos_type tellpos() {
     return m_in;
   }
   /// @endcond
  private:
-  char *m_buf;
-  size_t m_size;
-  size_t m_in;
+  char *m_buf = nullptr;
+  size_t m_size = 0;
+  size_t m_in = 0;
 };
 
 
