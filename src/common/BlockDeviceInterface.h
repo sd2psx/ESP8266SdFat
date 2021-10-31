@@ -30,11 +30,9 @@
 #define BlockDeviceInterface_h
 #include <stdint.h>
 #include <stddef.h>
-#include "../SdFatConfig.h"
-
+#include "SdFatConfig.h"
 
 namespace sdfat {
-
 
 /**
  * \class BlockDeviceInterface

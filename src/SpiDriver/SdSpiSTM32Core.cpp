@@ -22,13 +22,9 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+// Driver for: https://github.com/stm32duino/Arduino_Core_STM32
 #include "SdSpiDriver.h"
-
-
-namespace sdfat {
-
-
-#if defined(SD_USE_CUSTOM_SPI) && defined(ARDUINO_ARCH_APOLLO3)
+#if defined(SD_USE_CUSTOM_SPI) && defined(STM32_CORE_VERSION)
 //------------------------------------------------------------------------------
 void SdSpiArduinoDriver::activate() {
   m_spi->beginTransaction(m_spiSettings);
@@ -52,6 +48,7 @@ uint8_t SdSpiArduinoDriver::receive() {
 }
 //------------------------------------------------------------------------------
 uint8_t SdSpiArduinoDriver::receive(uint8_t* buf, size_t count) {
+  // Must send 0XFF - SD looks at send data for command.
   memset(buf, 0XFF, count);
   m_spi->transfer(buf, count);
   return 0;
@@ -62,22 +59,13 @@ void SdSpiArduinoDriver::send(uint8_t data) {
 }
 //------------------------------------------------------------------------------
 void SdSpiArduinoDriver::send(const uint8_t* buf, size_t count) {
-  // If not a multiple of four.  Command with CRC used six byte send.
-  while (count%4) {
-    send(*buf++);
-    count--;
+  // Avoid stack overflow if bad count.  This should cause a write error.
+  if (count > 512) {
+    return;
   }
-  // Convert byte array to 4 byte array.
-  uint32_t myArray[count/4]; // NOLINT
-  for (int x = 0; x < count/4; x++) {
-    myArray[x] = ((uint32_t)buf[(x * 4) + 3] << (8 * 3)) |
-                 ((uint32_t)buf[(x * 4) + 2] << (8 * 2)) |
-                 ((uint32_t)buf[(x * 4) + 1] << (8 * 1)) |
-                 ((uint32_t)buf[(x * 4) + 0] << (8 * 0));
-  }
-  m_spi->transfer(reinterpret_cast<void *>(myArray), count);
+  // Not easy to avoid receive so use tmp RX buffer.
+  uint8_t rxBuf[512];
+  // Discard const - STM32 not const correct.
+  m_spi->transfer(const_cast<uint8_t*>(buf), rxBuf, count);
 }
-#endif  // defined(SD_USE_CUSTOM_SPI) && defined(ARDUINO_ARCH_APOLLO3)
-
-
-}; // namespace sdfat
+#endif  // defined(SD_USE_CUSTOM_SPI) && defined(STM32_CORE_VERSION)

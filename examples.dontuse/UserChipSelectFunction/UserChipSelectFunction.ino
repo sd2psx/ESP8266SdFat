@@ -8,7 +8,7 @@ using namespace sdfat;
 
 // SD_CHIP_SELECT_MODE must be set to one or two in SdFat/SdFatConfig.h.
 // A value of one allows optional replacement and two requires replacement.
-#if SD_CHIP_SELECT_MODE == 1 || SD_CHIP_SELECT_MODE == 2
+#if SD_CHIP_SELECT_MODE == 1 || SD_CHIP_SELECT_MODE == 2  
 
 // SD chip select pin.
 #define SD_CS_PIN SS
@@ -37,11 +37,11 @@ void setup() {
     sd.initErrorHalt(&Serial);
   }
   sd.ls(&Serial, LS_SIZE);
-
+  
   Serial.print(F("sdCsInit calls: "));
   Serial.println(initCalls);
   Serial.print(F("sdCsWrite calls: "));
-  Serial.println(writeCalls);
+  Serial.println(writeCalls); 
 }
 //------------------------------------------------------------------------------
 void loop() {}

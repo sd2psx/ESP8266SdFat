@@ -32,6 +32,9 @@ namespace sdfat {
 
 
 //==============================================================================
+/** Set zero to disable mod for non-blocking write. */
+#define ENABLE_TEENSY_SDIO_MOD 1
+//==============================================================================
 // limit of K66 due to errata KINETIS_K_0N65N.
 const uint32_t MAX_BLKCNT = 0XFFFF;
 //==============================================================================

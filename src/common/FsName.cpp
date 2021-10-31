@@ -22,25 +22,38 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-#ifndef upcase_h
-#define upcase_h
-#include "ExFatFile.h"
-
+#include "FsName.h"
+#include "FsUtf.h"
 
 namespace sdfat {
 
+#if USE_UTF8_LONG_NAMES
+uint16_t FsName::get16() {
+  uint16_t rtn;
+  if (ls) {
+    rtn = ls;
+    ls = 0;
+  } else if (next >= end) {
+    rtn = 0;
+  } else {
+    uint32_t cp;
+    const char* ptr = FsUtf::mbToCp(next, end, &cp);
+    if (!ptr) {
+      goto fail;
+    }
+    next = ptr;
+    if (cp <= 0XFFFF) {
+      rtn = cp;
+    } else {
+      ls = FsUtf::lowSurrogate(cp);
+      rtn = FsUtf::highSurrogate(cp);
+    }
+  }
+  return rtn;
 
-bool exFatCmpName(const DirName_t* unicode,
-                  const char* name, size_t offset, size_t n);
-bool exFatCmpName(const DirName_t* unicode,
-                  const ExChar16_t* name, size_t offset, size_t n);
-uint16_t exFatHashName(const char* name, size_t n, uint16_t hash);
-uint16_t exFatHashName(const ExChar16_t* name, size_t n, uint16_t hash);
-uint16_t toUpcase(uint16_t chr);
-uint32_t upcaseChecksum(uint16_t unicode, uint32_t checksum);
-
+ fail:
+  return 0XFFFF;
+}
+#endif  // USE_UTF8_LONG_NAMES
 
 }; // namespace sdfat
-
-
-#endif  // upcase_h

@@ -30,11 +30,9 @@
 #define SysCall_h
 #include <stdint.h>
 #include <stddef.h>
-#include "../SdFatConfig.h"
-
+#include "SdFatConfig.h"
 
 namespace sdfat {
-
 
 #if __cplusplus < 201103
 #warning nullptr defined
@@ -105,7 +103,6 @@ inline void SysCall::yield() {}
 #endif  // defined(PLATFORM_ID)
 //------------------------------------------------------------------------------
 #else  // ENABLE_ARDUINO_FEATURES
-#error Print not defined
 #include "PrintBasic.h"
 /** If not Arduino */
 typedef PrintBasic print_t;

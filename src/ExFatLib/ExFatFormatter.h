@@ -27,11 +27,8 @@
 #include "ExFatConfig.h"
 #include "../common/SysCall.h"
 #include "../common/BlockDevice.h"
-#include "upcase.h"
-
 
 namespace sdfat {
-
 
 /**
  * \class ExFatFormatter

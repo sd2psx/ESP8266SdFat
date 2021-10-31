@@ -25,26 +25,12 @@
 #ifndef ExFatTypes_h
 #define ExFatTypes_h
 #include "ExFatConfig.h"
-
+#include "../common/FsUtf.h"
+#include "../common/FsName.h"
 
 namespace sdfat {
 
-
-#if __cplusplus < 201103
-#warning no char16_t
-typedef uint16_t ExChar16_t;
-//  #error C++11 Support required
-#else  // __cplusplus < 201103
-typedef char16_t ExChar16_t;
-#endif  // __cplusplus < 201103
-
-#if USE_EXFAT_UNICODE_NAMES
-/** exFAT API character type */
-typedef ExChar16_t ExChar_t;
-#else  // USE_EXFAT_UNICODE_NAMES
-/** exFAT API character type */
-typedef char ExChar_t;
-#endif  // USE_EXFAT_UNICODE_NAMES
+//------------------------------------------------------------------------------
 /**
  * \struct DirPos_t
  * \brief Internal type for position in directory file.
@@ -57,9 +43,19 @@ struct DirPos_t {
   /** directory is contiguous */
   bool     isContiguous;
 };
-
+//------------------------------------------------------------------------------
+/**
+ * \class ExName_t
+ * \brief Internal type for file name - do not use in user apps.
+ */
+class ExName_t : public FsName {
+ public:
+  /** Length of UTF-16 name */
+  size_t nameLength;
+  /** Hash for UTF-16 name */
+  uint16_t nameHash;
+};
 
 }; // namespace sdfat
-
 
 #endif  // ExFatTypes_h
