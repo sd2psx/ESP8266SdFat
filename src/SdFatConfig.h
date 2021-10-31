@@ -34,7 +34,7 @@
 #endif  // __AVR__
 //
 // To try UTF-8 encoded filenames.
-// #define USE_UTF8_LONG_NAMES 1
+#define USE_UTF8_LONG_NAMES 1
 //
 // For minimum flash size use these settings:
 // #define USE_FAT_FILE_FLAG_CONTIGUOUS 0
