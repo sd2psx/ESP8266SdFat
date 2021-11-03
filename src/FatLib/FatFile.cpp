@@ -1475,3 +1475,26 @@ size_t FatFile::write(const void* buf, size_t nbyte) {
   m_error |= WRITE_ERROR;
   return 0;
 }
+//-------------------------------------------------------
+// EFP3 - Match upstream Arduino hack
+int FatFile::availableSpaceForWrite() {
+  // error if not a normal file or is read-only
+  if (!isWritable() || m_vol->m_blockDev->isBusy()) {
+    return 0;
+  }
+  // seek to end of file if append flag
+  if ((m_flags & FILE_FLAG_APPEND)) {
+    if (!seekSet(m_fileSize)) {
+      return 0;
+    }
+  }
+  // remaining space in current sector
+  uint16_t sectorOffset = m_curPosition & m_vol->sectorMask();
+  int afw = m_vol->bytesPerSector() - sectorOffset - 1;
+  if (afw == 0 && m_vol->freeClusterCount() > 0) {
+    // a new sector can be available
+    afw = m_vol->bytesPerSector();
+  }
+  return afw;
+}
+//-------------------------------------------------------

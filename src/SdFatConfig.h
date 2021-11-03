@@ -33,8 +33,8 @@
 #include <avr/io.h>
 #endif  // __AVR__
 //
-// To try UTF-8 encoded filenames.
-// #define USE_UTF8_LONG_NAMES 1
+#define SDFAT_FILE_TYPE 1
+#define USE_UTF8_LONG_NAMES 1
 //
 // For minimum flash size use these settings:
 // #define USE_FAT_FILE_FLAG_CONTIGUOUS 0
@@ -398,6 +398,14 @@ typedef uint8_t SdCsPin_t;
 #define USE_MULTI_SECTOR_IO 1
 #endif  // RAMEND
 //------------------------------------------------------------------------------
+/** Disable SDIO if on host */
+#ifdef HOST_MOCK
+#undef INCLUDE_SDIOS
+#define INCLUDE_SDIOS 0
+#undef SS
+#define SS 0
+#endif
+//------------------------------------------------------------------------------
 /** Enable SDIO driver if available. */
 #if defined(__MK64FX512__) || defined(__MK66FX1M0__)
 // Pseudo pin select for SDIO.
@@ -440,5 +448,6 @@ typedef uint8_t SdCsPin_t;
 /** Default is no SDIO. */
 #define HAS_SDIO_CLASS 0
 #endif  // HAS_SDIO_CLASS
+
 
 #endif  // SdFatConfig_h

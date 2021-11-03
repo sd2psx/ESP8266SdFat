@@ -33,6 +33,12 @@
 #include "SdCardInfo.h"
 #include "SdCardInterface.h"
 #include "../SpiDriver/SdSpiDriver.h"
+
+#ifdef HOST_MOCK
+extern uint64_t _sdCardSizeB;
+extern uint8_t *_sdCard;
+#endif
+
 //==============================================================================
 /**
  * \class SharedSpiCard
@@ -332,6 +338,7 @@ class SharedSpiCard {
  * \brief Raw access to SD and SDHC flash memory cards via dedicate SPI port.
  */
 class DedicatedSpiCard : public SharedSpiCard {
+#ifndef HOST_MOCK
  public:
   /** Construct an instance of DedicatedSpiCard. */
   DedicatedSpiCard() {}
@@ -378,6 +385,64 @@ class DedicatedSpiCard : public SharedSpiCard {
  private:
   uint32_t m_curSector;
   bool m_sharedSpi = true;
+#else // HOST_MOCK
+ public:
+  DedicatedSpiCard() : m_errorCode(SD_CARD_ERROR_INIT_NOT_CALLED), m_type(0) {
+  }
+  ~DedicatedSpiCard() { }
+  bool begin(SdSpiConfig spiConfig) {
+    m_errorCode = 0;
+    m_status = 0;
+    (void)spiConfig;
+    return true;
+  }
+  uint32_t cardSize() { return _sdCardSizeB / 512LL; }
+  bool erase(uint32_t firstBlock, uint32_t lastBlock) {
+    memset(_sdCard + firstBlock * 512, 0, (lastBlock - firstBlock) * 512);
+    return true;
+  }
+  bool eraseSingleBlockEnable() { return true; }
+  void error(uint8_t code) { m_errorCode = code; }
+  int errorCode() const { return m_errorCode; }
+  int errorData() const { return m_status; }
+  bool isBusy() { return false; }
+  bool readSector(uint32_t sector, uint8_t* dst) {
+    return readSectors(sector, dst, 1);
+  }
+  bool readSectors(uint32_t sector, uint8_t* dst, size_t ns) {
+    if ((int)(sector + ns) > (int) (_sdCardSizeB / 512LL)) return false;
+    memcpy(dst, _sdCard + sector * 512, 512 * ns);
+    return true;
+  }
+
+  bool readCID(cid_t* cid) { return true; }
+  bool readCSD(csd_t* csd) { return true; }
+  bool readOCR(uint32_t* ocr) { return true; }
+  bool readStatus(uint8_t* status) { return true; }
+  bool readStop() { return true; }
+  bool syncBlocks() { return true; }
+  int type() const { return m_type; }
+  bool writeSector(uint32_t sector, const uint8_t* src) {
+    return writeSectors(sector, src, 1);
+  }
+  bool writeSectors(uint32_t sector, const uint8_t* src, size_t ns) {
+    if ((int)(sector + ns) > (int) (_sdCardSizeB / 512LL)) return false;
+    memcpy(_sdCard + sector * 512, src, 512 * ns);
+    return true;
+  }
+
+  uint32_t sectorCount() { return _sdCardSizeB / 512LL; }
+  bool syncDevice() { return true; }
+
+  bool writeStop() { return true; }
+  void spiStart() { }
+  void spiStop() { }
+
+private:
+  int m_errorCode;
+  int m_status;
+  int m_type;
+#endif
 };
 //==============================================================================
 #if ENABLE_DEDICATED_SPI

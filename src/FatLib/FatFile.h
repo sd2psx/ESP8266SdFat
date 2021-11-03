@@ -412,6 +412,7 @@ class FatFile {
   bool isSystem() const {return m_attributes & FILE_ATTR_SYSTEM;}
   /** \return True file is writable. */
   bool isWritable() const {return m_flags & FILE_FLAG_WRITE;}
+  int availableSpaceForWrite();
   /** List directory contents.
    *
    * \param[in] pr Print stream for list.
