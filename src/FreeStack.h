@@ -65,6 +65,13 @@ inline int FreeStack() {
   register uint32_t sp asm("sp");
   return reinterpret_cast<char*>(sp) - reinterpret_cast<char*>(sbrk(0));
 }
+#elif defined(ESP8266)
+#include <Arduino.h>
+inline int FreeStack() {
+  int free = (int)ESP.getFreeContStack();
+  ESP.resetFreeContStack();
+  return free;
+}
 #else  // defined(__AVR__) || defined(DOXYGEN)
 #ifndef FREE_STACK_CPP
 #warning FreeStack is not defined for this system.

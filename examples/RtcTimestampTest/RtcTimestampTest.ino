@@ -1,3 +1,6 @@
+#ifdef ESP8266
+#error This example is not supported on the ESP8266
+#endif
 // Test of time-stamp callback.
 // Set the callback with this statement.
 // FsDateTime::setCallback(dateTime);

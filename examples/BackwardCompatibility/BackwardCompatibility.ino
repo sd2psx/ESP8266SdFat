@@ -11,7 +11,7 @@
 // Set USE_SD_H nonzero to use SD.h.
 // Set USE_SD_H zero to use SdFat.h.
 //
-#define USE_SD_H 0
+#define USE_SD_H 1
 //
 #if USE_SD_H
 #include <SD.h>
