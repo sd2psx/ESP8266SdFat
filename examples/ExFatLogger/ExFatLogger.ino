@@ -512,7 +512,7 @@ void setup() {
     pinMode(ERROR_LED_PIN, OUTPUT);
     digitalWrite(ERROR_LED_PIN, HIGH);
   }
-  Serial.begin(9600);
+  Serial.begin(115200);
 
   // Wait for USB Serial
   while (!Serial) {

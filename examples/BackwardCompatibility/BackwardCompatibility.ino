@@ -27,7 +27,7 @@ SdFat SD;
 File myFile;
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   while (!Serial) {}
 
 #if USE_SD_H

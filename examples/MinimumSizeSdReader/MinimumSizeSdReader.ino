@@ -31,7 +31,7 @@ void setup() {
   int n;
   char buf[4];
 
-  Serial.begin(9600);
+  Serial.begin(115200);
   while (!Serial) {}
   Serial.println("Type any character to begin");
   while (!Serial.available()) {}

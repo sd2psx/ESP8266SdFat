@@ -133,7 +133,7 @@ void clearSerialInput() {
   }
 }
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   while (!Serial) {}
   // Go faster or log more channels.  ADC quality will suffer.
   // analogReadAveraging(1);

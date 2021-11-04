@@ -68,7 +68,7 @@ SdFat sd;
 
 //------------------------------------------------------------------------------
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   if (!sd.begin(SD_CONFIG)) {
     sd.initErrorHalt(&Serial);
   }

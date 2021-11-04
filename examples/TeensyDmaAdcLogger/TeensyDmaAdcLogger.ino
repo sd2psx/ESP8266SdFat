@@ -226,7 +226,7 @@ void waitSerial(const char* msg) {
 }
 //------------------------------------------------------------------------------
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   while (!Serial) {
     yield();
   }

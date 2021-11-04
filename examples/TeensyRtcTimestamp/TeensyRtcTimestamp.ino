@@ -94,7 +94,7 @@ void setup() {
   // set the Time library to use Teensy 3.0's RTC to keep time
   setSyncProvider(getTeensy3Time);
 
-  Serial.begin(9600);
+  Serial.begin(115200);
   while (!Serial) {
     yield();
   }
