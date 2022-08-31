@@ -35,6 +35,7 @@
 //
 #define SDFAT_FILE_TYPE 1
 #define USE_UTF8_LONG_NAMES 1
+#define USE_SPI_ARRAY_TRANSFER 1
 //
 // For minimum flash size use these settings:
 // #define USE_FAT_FILE_FLAG_CONTIGUOUS 0
