@@ -39,6 +39,7 @@
 class __FlashStringHelper;
 #define F(str) (reinterpret_cast<const __FlashStringHelper *>(PSTR(str)))
 #else  // F
+class __FlashStringHelper;
 #define F(str) (str)
 #endif  // F
 

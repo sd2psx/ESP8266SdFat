@@ -47,11 +47,11 @@
 // if they are in a #ifndef/#endif block below.
 //------------------------------------------------------------------------------
 /** For Debug - must be one */
-#define ENABLE_ARDUINO_FEATURES 1
+#define ENABLE_ARDUINO_FEATURES 0
 /** For Debug - must be one */
-#define ENABLE_ARDUINO_SERIAL 1
+#define ENABLE_ARDUINO_SERIAL 0
 /** For Debug - must be one */
-#define ENABLE_ARDUINO_STRING 1
+#define ENABLE_ARDUINO_STRING 0
 //------------------------------------------------------------------------------
 #if ENABLE_ARDUINO_FEATURES
 #include "Arduino.h"
