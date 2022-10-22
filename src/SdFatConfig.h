@@ -33,7 +33,7 @@
 #include <avr/io.h>
 #endif  // __AVR__
 //
-#define SDFAT_FILE_TYPE 1
+#define SDFAT_FILE_TYPE 3
 #define USE_UTF8_LONG_NAMES 1
 #define USE_SPI_ARRAY_TRANSFER 1
 //
